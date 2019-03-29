@@ -20,5 +20,6 @@ public interface MainContract
         void setCountryList(ArrayList<CountryPojo> countryList);
         void nextButton();
         void previousButton();
+        void showData(CountryPojo countryPojo);
     }
 }
