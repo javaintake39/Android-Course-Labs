@@ -15,7 +15,6 @@ public interface MainContract
     }
     public interface Ipresenter
     {
-        ImageView getImage();
         void setImage(Bitmap bitmap);
         void fillCountryList(ArrayList<CountryPojo> countryList);
         void nextButton();

@@ -22,17 +22,11 @@ public class MainPresenter implements MainContract.Ipresenter {
         this.view=view;
         networkService=new networkService(this);
     }
-    @Override
-    public ImageView getImage()
-    {
-        imageView=view.getImage();
-        return  imageView;
-    }
 
     @Override
     public void setImage(Bitmap bitmap)
     {
-        getImage().setImageBitmap(bitmap);
+        view.getImage().setImageBitmap(bitmap);
     }
 
     @Override

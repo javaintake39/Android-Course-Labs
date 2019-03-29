@@ -51,11 +51,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.Ivie
             }
         });
     }
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
 
     public void initComponents()
     {
