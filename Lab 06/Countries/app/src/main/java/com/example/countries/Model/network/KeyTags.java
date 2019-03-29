@@ -1,4 +1,4 @@
-package com.example.countries.dataProccess;
+package com.example.countries.Model.network;
 
 public class KeyTags {
 

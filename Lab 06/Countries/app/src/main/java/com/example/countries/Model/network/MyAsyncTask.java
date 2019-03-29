@@ -1,10 +1,11 @@
-package com.example.countries;
+package com.example.countries.Model.network;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.os.Handler;
-import android.widget.Toast;
+
+import com.example.countries.Screens.MainActivity;
+import com.example.countries.Screens.MainContract;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,13 +13,12 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-
 public class MyAsyncTask extends AsyncTask<String, Void, Bitmap>
 {
-   MainActivity mainActivity;
-    public MyAsyncTask(MainActivity mainActivity)
-    {
-        this.mainActivity = mainActivity;
+
+    MainContract.Ipresenter presenter;
+    public MyAsyncTask(MainContract.Ipresenter presenter) {
+        this.presenter = presenter;
     }
     @Override
     protected Bitmap doInBackground(String... url)
@@ -35,7 +35,7 @@ public class MyAsyncTask extends AsyncTask<String, Void, Bitmap>
     protected void onPostExecute(Bitmap bitmap)
     {
         super.onPostExecute(bitmap);
-        mainActivity.imgFlag.setImageBitmap(bitmap);
+       presenter.setImage(bitmap);
     }
     private Bitmap downloadImage(String url) throws IOException {
         Bitmap result=null;

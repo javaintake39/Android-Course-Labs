@@ -1,4 +1,6 @@
-package com.example.countries.dataProccess;
+package com.example.countries.Model.network;
+
+import com.example.countries.Model.CountryPojo;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -8,9 +10,9 @@ import java.util.ArrayList;
 
 public class JsonParser {
 
-    ArrayList<CountryDAO> data;
+    ArrayList<CountryPojo> data;
 
-    public ArrayList<CountryDAO> JsonProcess(String jsonFile) {
+    public ArrayList<CountryPojo> JsonProcess(String jsonFile) {
 
         data = new ArrayList<>();
         try {
@@ -21,7 +23,7 @@ public class JsonParser {
 
                 JSONObject mainObjectArray = jsonArray.getJSONObject(i);
 
-                CountryDAO encap = new CountryDAO
+                CountryPojo encap = new CountryPojo
                         (
                         mainObjectArray.getString(KeyTags.rankKey),
                         mainObjectArray.getString(KeyTags.countryKey),
@@ -38,7 +40,7 @@ public class JsonParser {
         return data;
     }
 
-    public ArrayList<CountryDAO> getlist()
+    public ArrayList<CountryPojo> getlist()
     {
         return data;
     }
