@@ -67,21 +67,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.Ivie
         imgFlag=(ImageView)findViewById(R.id.imgFlag);
     }
 
-
-    private boolean checkInternetConnection()
-    {
-        ConnectivityManager cm = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        if (null != activeNetwork)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
     @Override
     public ImageView getImage() {
         return imgFlag;

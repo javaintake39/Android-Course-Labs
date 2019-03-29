@@ -17,7 +17,7 @@ public interface MainContract
     {
         ImageView getImage();
         void setImage(Bitmap bitmap);
-        void setCountryList(ArrayList<CountryPojo> countryList);
+        void fillCountryList(ArrayList<CountryPojo> countryList);
         void nextButton();
         void previousButton();
         void showData(CountryPojo countryPojo);

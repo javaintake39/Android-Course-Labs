@@ -17,8 +17,7 @@ import java.util.ArrayList;
 
 public class networkService
 {
-    public static final String TAG="tag";
-    public final String url = "https://www.androidbegin.com/tutorial/jsonparsetutorial.txt";
+    public  String url = "https://www.androidbegin.com/tutorial/jsonparsetutorial.txt";
     public ArrayList<CountryPojo> countryList = new ArrayList();
     JsonParser parser;
     MyAsyncTask task;
@@ -27,25 +26,22 @@ public class networkService
     public networkService(final MainContract.Ipresenter presenter)
     {
         this.presenter=presenter;
-        task=new MyAsyncTask(presenter);
         parser = new JsonParser();
         workerThread(url);
-
     } // End of Constructor
 
     /*
     this workerThread make background operation using thread
      */
-    public void workerThread(final String link)
+    private void workerThread(final String link)
     {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 String jsonObjectAsString = getJsonObjectFromURL(link); // get jsonObject as String from given URL
                 countryList=parser.JsonProcess(jsonObjectAsString);    // JsonProcess take jsonObjectAsString - > arrayList of Countries
-                presenter.setCountryList(parser.getlist());                 // send countryList to presenter
-                presenter.showData(countryList.get(0));                // set Data when  App launch
-                task.execute(countryList.get(0).getFlag());            // set Image when App launch
+                presenter.fillCountryList(parser.getlist());            // send countryList to presenter
+                presenter.showData(countryList.get(0));                // showData first time when  App launchs
             }
         });
         thread.start();
@@ -76,7 +72,7 @@ public class networkService
 
     }
 
-    public void startAsyncTask(String picURL)
+    public void AsyncTaskcaller(String picURL)
     {
         task=new MyAsyncTask(presenter);
         task.execute(picURL);

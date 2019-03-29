@@ -23,21 +23,28 @@ public class MainPresenter implements MainContract.Ipresenter {
         networkService=new networkService(this);
     }
     @Override
-    public ImageView getImage() {
+    public ImageView getImage()
+    {
         imageView=view.getImage();
         return  imageView;
     }
+
     @Override
-    public void setImage(Bitmap bitmap) {
+    public void setImage(Bitmap bitmap)
+    {
         getImage().setImageBitmap(bitmap);
     }
 
     @Override
-    public void setCountryList(ArrayList<CountryPojo> countryList) {
+    public void fillCountryList(ArrayList<CountryPojo> countryList)
+
+    {
         this.countryList=countryList;
     }
+
     @Override
-    public void nextButton() {
+    public void nextButton()
+    {
             if(counter<9)
             {
                 counter++;
@@ -47,12 +54,12 @@ public class MainPresenter implements MainContract.Ipresenter {
                 counter=0;
             }
             countryPojo=countryList.get(counter);
-            view.showData(countryPojo);
-            networkService.startAsyncTask(countryPojo.getFlag());
+            showData(countryPojo);
     }
 
     @Override
-    public void previousButton() {
+    public void previousButton()
+    {
         if(counter==0)
         {
             counter=9;
@@ -62,14 +69,15 @@ public class MainPresenter implements MainContract.Ipresenter {
             counter--;
         }
             countryPojo=countryList.get(counter);
-            view.showData(countryPojo);
-            networkService.startAsyncTask(countryPojo.getFlag());
+            showData(countryPojo);
 
     }
 
     @Override
-    public void showData(CountryPojo countryPojo) {
+    public void showData(CountryPojo countryPojo)
+    {
         view.showData(countryPojo);
+        networkService.AsyncTaskcaller(countryPojo.getFlag());
     }
 
 }
