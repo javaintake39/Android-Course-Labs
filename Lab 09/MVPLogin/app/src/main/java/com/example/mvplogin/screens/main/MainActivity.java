@@ -1,30 +1,14 @@
-package com.example.countries.Screens;
+package com.example.mvplogin.screens.main;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.countries.Model.CountryPojo;
-import com.example.countries.Model.network.JsonParser;
-import com.example.countries.R;
-
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import com.example.mvplogin.R;
+import com.example.mvplogin.model.CountryPojo;
 
 public class MainActivity extends AppCompatActivity implements MainContract.Iview
 {
@@ -71,14 +55,14 @@ public class MainActivity extends AppCompatActivity implements MainContract.Ivie
     @Override
     public void showData(final CountryPojo countryPojo)
     {
-       MainActivity.this.runOnUiThread(new Runnable() {
-           @Override
-           public void run() {
-               txtRank.setText(countryPojo.getRank());
-               txtCountry.setText(countryPojo.getCountry());
-               txtPopulation.setText(countryPojo.getPopulation());
-           }
-       });
+        MainActivity.this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                txtRank.setText(countryPojo.getRank());
+                txtCountry.setText(countryPojo.getCountry());
+                txtPopulation.setText(countryPojo.getPopulation());
+            }
+        });
     }
 
 

@@ -1,17 +1,16 @@
-package com.example.countries.Screens;
+package com.example.mvplogin.screens.main;
 
 import android.graphics.Bitmap;
-import android.widget.ImageView;
-import com.example.countries.Model.CountryPojo;
-import com.example.countries.Model.network.networkService;
+
+import com.example.mvplogin.model.CountryPojo;
+import com.example.mvplogin.model.network.networkService;
 
 import java.util.ArrayList;
-
 
 public class MainPresenter implements MainContract.Ipresenter {
 
     MainContract.Iview view;
-    com.example.countries.Model.network.networkService networkService;
+    networkService networkService;
     ArrayList<CountryPojo> countryList;
     CountryPojo countryPojo;
     private int counter=0;
@@ -38,16 +37,16 @@ public class MainPresenter implements MainContract.Ipresenter {
     @Override
     public void nextButton()
     {
-            if(counter<9)
-            {
-                counter++;
-            }
-            else
-            {
-                counter=0;
-            }
-            countryPojo=countryList.get(counter);
-            showData(countryPojo);
+        if(counter<9)
+        {
+            counter++;
+        }
+        else
+        {
+            counter=0;
+        }
+        countryPojo=countryList.get(counter);
+        showData(countryPojo);
     }
 
     @Override
@@ -61,8 +60,8 @@ public class MainPresenter implements MainContract.Ipresenter {
         {
             counter--;
         }
-            countryPojo=countryList.get(counter);
-            showData(countryPojo);
+        countryPojo=countryList.get(counter);
+        showData(countryPojo);
 
     }
 
