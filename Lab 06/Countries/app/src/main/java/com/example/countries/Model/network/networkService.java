@@ -1,8 +1,5 @@
 package com.example.countries.Model.network;
 
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
 
 import com.example.countries.Model.CountryPojo;
 import com.example.countries.Screens.MainContract;
