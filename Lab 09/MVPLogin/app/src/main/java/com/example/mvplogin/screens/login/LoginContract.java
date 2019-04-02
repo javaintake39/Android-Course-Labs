@@ -2,7 +2,8 @@ package com.example.mvplogin.screens.login;
 
 import android.content.Context;
 
-public interface LoginContract {
+public interface LoginContract
+{
     public interface Ipresenter
     {
         void checkUser(String email,String password);

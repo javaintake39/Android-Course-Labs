@@ -20,6 +20,7 @@ public class MyFCMService extends FirebaseMessagingService {
 
     }
 
+
     private void sendNotification(String messageBody)
     {
         Intent intent = new Intent(this, MainActivity.class);
